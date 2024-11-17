@@ -7,3 +7,33 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+
+@font-face {
+  font-family: "OpenSansRegular";
+  src: local("OpenSansRegular"),
+    url("./assets/fonts//Open_Sans/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSansLight";
+  src: local("OpenSansLight"),
+    url("./assets/fonts//Open_Sans/OpenSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSansMedium";
+  src: local("OpenSansMedium"),
+    url("./assets/fonts//Open_Sans/OpenSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSansBold";
+  src: local("OpenSansBold"),
+    url("./assets/fonts//Open_Sans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSansExtraBold";
+  src: local("OpenSansExtraBold"),
+    url("./assets/fonts//Open_Sans/OpenSans-ExtraBold.ttf") format("truetype");
+}
