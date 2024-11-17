@@ -5,6 +5,9 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const OutletWrapper = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
   background: #f5f5f5;
 `;
