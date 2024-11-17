@@ -10,7 +10,6 @@ const HeaderWrapper = styled.header`
 const HeaderLogo = styled.div`
   p {
     font-family: "OpenSansLight";
-    margin: 0px;
     font-size: 32px;
   }
 `;

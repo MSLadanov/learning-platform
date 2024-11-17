@@ -1,31 +1,108 @@
 import { ReactElement } from "react";
 import TextInput from "../TextInput/TextInput";
 import styled from "styled-components";
-import { Formik, Field, Form } from "formik";
+import { Formik, Form } from "formik";
+import { NavLink } from "react-router-dom";
+import * as Yup from "yup";
 
 const SignInWrapper = styled.div`
-  max-height: 501px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 700px;
+  background-color: #ffffff;
+  padding: 28px 100px;
+  color: #aaaaaa;
+  font-family: "OpenSansRegular";
+  border-radius: 16px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  a {
+    align-self: start;
+    text-decoration: none;
+    color: #aaaaaa;
+  }
+  form {
+    width: 100%;
+    a {
+      font-size: 11px;
+    }
+  }
+  button {
+    background-color: #148c88;
+    color: #ffffff;
+    width: 100%;
+    height: 42px;
+    border-style: none;
+    border-radius: 28px;
+    margin: 16px 0px;
+  }
 `;
+
+const SignInHeader = styled.div`
+  p {
+    color: #2c2c2c;
+    font-family: "OpenSansRegular";
+    font-size: 36px;
+  }
+`;
+
+const SignInFooter = styled.div`
+  font-size: 11px;
+  a {
+    color: #000000;
+  }
+`;
+
+const SignInSchema = Yup.object().shape({
+  login: Yup.string().required("Обязательное поле"),
+  password: Yup.string()
+    .min(2, "Минимум 2 буквы")
+    .max(50, "Максимум 50 букв")
+    .required("Обязательное поле"),
+});
 
 export const SignIn = (): ReactElement => {
   return (
     <SignInWrapper>
-      <h1>Войти в профиль</h1>
+      <SignInHeader>
+        <p>Войти в профиль</p>
+      </SignInHeader>
       <Formik
         initialValues={{ login: "", password: "" }}
-        onSubmit={() => {
-          console.log("Form is validated! Submitting the form...");
+        validationSchema={SignInSchema}
+        onSubmit={(values) => {
+          console.log(values);
         }}
       >
-        {() => (
+        {({ errors, touched }) => (
           <Form>
-            <TextInput id="login" label="Логин" name="login" required />
-            <TextInput id="password" label="Пароль" name="password" required />
+            <TextInput
+              id="login"
+              label="Логин"
+              name="login"
+              required
+              errors={errors}
+              touched={touched}
+            />
+            <TextInput
+              id="password"
+              label="Пароль"
+              name="password"
+              required
+              type="password"
+              errors={errors}
+              touched={touched}
+            />
+            <NavLink to={"/forgotpassword"}>Восстановить пароль</NavLink>
             <button type="submit">Войти</button>
           </Form>
         )}
       </Formik>
+      <SignInFooter>
+        У вас нет профиля? <NavLink to={"/signup"}>Зарегистрироваться</NavLink>
+      </SignInFooter>
     </SignInWrapper>
   );
 };

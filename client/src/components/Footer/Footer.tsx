@@ -10,7 +10,6 @@ const FooterWrapper = styled.footer`
 const FooterLogo = styled.div`
   p {
     font-family: "OpenSansLight";
-    margin: 0px;
     font-size: 21px;
   }
 `;
