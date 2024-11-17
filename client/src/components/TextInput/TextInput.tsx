@@ -14,7 +14,7 @@ const InputField = styled.div`
     transition: border-color 0.2s ease;
 
     &:focus {
-      border-bottom: 1px solid #4caf50;
+      border-bottom: 1px solid #148C88;
       box-shadow: 0 1px 0 0 #4caf50;
     }
 
@@ -23,7 +23,7 @@ const InputField = styled.div`
       top: -20px;
       left: 0;
       font-size: 12px;
-      color: #4caf50;
+      color: #148C88;
     }
   }
 `;
