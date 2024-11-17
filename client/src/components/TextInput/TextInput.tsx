@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import styled from "styled-components";
 
 const InputField = styled.div`
@@ -14,7 +15,7 @@ const InputField = styled.div`
     transition: border-color 0.2s ease;
 
     &:focus {
-      border-bottom: 1px solid #148C88;
+      border-bottom: 1px solid #148c88;
       box-shadow: 0 1px 0 0 #4caf50;
     }
 
@@ -23,7 +24,7 @@ const InputField = styled.div`
       top: -20px;
       left: 0;
       font-size: 12px;
-      color: #148C88;
+      color: #148c88;
     }
   }
 `;
@@ -39,15 +40,22 @@ const Label = styled.label`
 interface ITextInputProps {
   id: string;
   label: string;
+  name: string;
   required: boolean;
 }
 
-const TextInput = ({ id, label, required }: ITextInputProps) => {
+const TextInput = ({ id, label, name, required }: ITextInputProps) => {
   return (
-    <InputField>
-      <input id={id} type="text" required={required} />
-      <Label htmlFor={id}>{label}</Label>
-    </InputField>
+    <Field name={name}>
+      {() => (
+        <>
+          <InputField>
+            <input id={id} type="text" required={required} />
+            <Label htmlFor={id}>{label}</Label>
+          </InputField>
+        </>
+      )}
+    </Field>
   );
 };
 
