@@ -58,8 +58,8 @@ const SignInFooter = styled.div`
 const SignInSchema = Yup.object().shape({
   login: Yup.string().required("Обязательное поле"),
   password: Yup.string()
-    .min(2, "Минимум 2 буквы")
-    .max(50, "Максимум 50 букв")
+    .min(6, "Минимум 6 букв")
+    .max(20, "Максимум 20 букв")
     .required("Обязательное поле"),
 });
 
