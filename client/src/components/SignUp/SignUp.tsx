@@ -76,7 +76,13 @@ export const SignUp = (): ReactElement => {
         <p>Войти в профиль</p>
       </SignUpHeader>
       <Formik
-        initialValues={{ login: "", password: "" }}
+        initialValues={{
+          fullname: "",
+          login: "",
+          email: "",
+          password: "",
+          repeatPassword: "",
+        }}
         validationSchema={SignUpSchema}
         onSubmit={(values) => {
           console.log(values);
@@ -127,7 +133,10 @@ export const SignUp = (): ReactElement => {
               errors={errors}
               touched={touched}
             />
-            <p>Нажимая кнопку, я соглашаюсь на обработку<a>персональных данных</a></p>
+            <p>
+              Нажимая кнопку, я соглашаюсь на обработку
+              <a>персональных данных</a>
+            </p>
             <button type="submit">Зарегистрироваться</button>
           </Form>
         )}
