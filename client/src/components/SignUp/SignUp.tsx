@@ -58,15 +58,17 @@ const SignUpFooter = styled.div`
 const SignUpSchema = Yup.object().shape({
   fullname: Yup.string().required("Обязательное поле"),
   login: Yup.string().required("Обязательное поле"),
-  email: Yup.string().email().required("Обязательное поле"),
+  email: Yup.string()
+    .email("Некорректный e-mail")
+    .required("Обязательное поле"),
   password: Yup.string()
     .min(6, "Минимум 6 буквы")
     .max(20, "Максимум 20 букв")
     .required("Обязательное поле"),
-  repeatPassword: Yup.string()
-    .min(6, "Минимум 6 буквы")
-    .max(20, "Максимум 20 букв")
-    .required("Обязательное поле"),
+  repeatPassword: Yup.string().oneOf(
+    [Yup.ref("password")],
+    "Пароли должны совпадать"
+  ),
 });
 
 export const SignUp = (): ReactElement => {

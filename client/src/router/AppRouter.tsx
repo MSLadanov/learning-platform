@@ -8,6 +8,7 @@ import {
 import { SignIn } from "@/components/SignIn/SignIn";
 import { SignUp } from "@/components/SignUp/SignUp";
 import { ForgotPassword } from "@/components/ForgotPassword/ForgotPassword";
+import { NewPassword } from "@/components/NewPassword/NewPassword";
 import { ReactElement } from "react";
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "signin", element: <SignIn /> },
       { path: "signup", element: <SignUp /> },
       { path: "forgotpassword", element: <ForgotPassword /> },
+      { path: "newpassword", element: <NewPassword /> },
     ],
   },
 ]);
