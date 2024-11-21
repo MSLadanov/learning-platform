@@ -15,6 +15,7 @@ const SignInWrapper = styled.div`
   color: #aaaaaa;
   font-family: "OpenSansRegular";
   border-radius: 16px;
+  scale: 0.8;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -45,6 +46,7 @@ const SignInHeader = styled.div`
     color: #2c2c2c;
     font-family: "OpenSansRegular";
     font-size: 36px;
+    font-weight: bold;
   }
 `;
 

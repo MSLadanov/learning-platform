@@ -17,6 +17,7 @@ const ForgotPasswordWrapper = styled.div`
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  scale: 0.8;
   a {
     align-self: start;
     text-decoration: none;

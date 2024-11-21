@@ -15,6 +15,7 @@ const SignUpWrapper = styled.div`
   color: #aaaaaa;
   font-family: "OpenSansRegular";
   border-radius: 16px;
+  scale: 0.8;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -25,7 +26,8 @@ const SignUpWrapper = styled.div`
   }
   form {
     width: 100%;
-    a {
+    a,
+    p {
       font-size: 11px;
     }
   }
@@ -41,10 +43,12 @@ const SignUpWrapper = styled.div`
 `;
 
 const SignUpHeader = styled.div`
+  align-self: start;
   p {
     color: #2c2c2c;
     font-family: "OpenSansRegular";
     font-size: 36px;
+    font-weight: bold;
   }
 `;
 
@@ -65,17 +69,18 @@ const SignUpSchema = Yup.object().shape({
     .min(6, "Минимум 6 буквы")
     .max(20, "Максимум 20 букв")
     .required("Обязательное поле"),
-  repeatPassword: Yup.string().oneOf(
-    [Yup.ref("password")],
-    "Пароли должны совпадать"
-  ),
+  repeatPassword: Yup.string()
+    .min(6, "Минимум 6 буквы")
+    .max(20, "Максимум 20 букв")
+    .required("Обязательное поле")
+    .oneOf([Yup.ref("password")], "Пароли должны совпадать"),
 });
 
 export const SignUp = (): ReactElement => {
   return (
     <SignUpWrapper>
       <SignUpHeader>
-        <p>Войти в профиль</p>
+        <p>Регистрация профиля</p>
       </SignUpHeader>
       <Formik
         initialValues={{
@@ -137,7 +142,7 @@ export const SignUp = (): ReactElement => {
             />
             <p>
               Нажимая кнопку, я соглашаюсь на обработку
-              <a>персональных данных</a>
+              <a> персональных данных</a>
             </p>
             <button type="submit">Зарегистрироваться</button>
           </Form>
