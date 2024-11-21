@@ -3,8 +3,8 @@ import TextInput from "../TextInput/TextInput";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { FormWrapper } from "@/styled/FormWrapper";
-import { FormHeader } from "@/styled/FormHeader";
+import { FormWrapper } from "@/styled/Form/FormWrapper";
+import { FormHeader } from "@/styled/Form/FormHeader";
 
 const ForgotPasswordEmailSchema = Yup.object().shape({
   email: Yup.string()

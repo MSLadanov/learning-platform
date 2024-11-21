@@ -1,11 +1,11 @@
 import { ReactElement } from "react";
 import TextInput from "../TextInput/TextInput";
-import { FormWrapper } from "@/styled/FormWrapper";
-import { FormHeader } from "@/styled/FormHeader";
+import { FormWrapper } from "@/styled/Form/FormWrapper";
+import { FormHeader } from "@/styled/Form/FormHeader";
 import { Formik, Form } from "formik";
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
-import { FormFooter } from "@/styled/FormFooter";
+import { FormFooter } from "@/styled/Form/FormFooter";
 
 const SignInSchema = Yup.object().shape({
   login: Yup.string().required("Обязательное поле"),

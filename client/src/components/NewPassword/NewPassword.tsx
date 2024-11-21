@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import TextInput from "../TextInput/TextInput";
-import { FormWrapper } from "@/styled/FormWrapper";
-import { FormHeader } from "@/styled/FormHeader";
+import { FormWrapper } from "@/styled/Form/FormWrapper";
+import { FormHeader } from "@/styled/Form/FormHeader";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 

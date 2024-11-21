@@ -3,9 +3,9 @@ import TextInput from "../TextInput/TextInput";
 import { Formik, Form } from "formik";
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
-import { FormWrapper } from "@/styled/FormWrapper";
-import { FormHeader } from "@/styled/FormHeader";
-import { FormFooter } from "@/styled/FormFooter";
+import { FormWrapper } from "@/styled/Form/FormWrapper";
+import { FormHeader } from "@/styled/Form/FormHeader";
+import { FormFooter } from "@/styled/Form/FormFooter";
 
 const SignUpSchema = Yup.object().shape({
   fullname: Yup.string().required("Обязательное поле"),
