@@ -1,56 +1,11 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import TextInput from "../TextInput/TextInput";
-import styled from "styled-components";
+import { FormWrapper } from "@/styled/FormWrapper";
+import { FormHeader } from "@/styled/FormHeader";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-const ForgotPasswordWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 700px;
-  background-color: #ffffff;
-  padding: 28px 100px;
-  color: #aaaaaa;
-  font-family: "OpenSansRegular";
-  border-radius: 16px;
-  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  scale: 0.8;
-  a {
-    align-self: start;
-    text-decoration: none;
-    color: #aaaaaa;
-  }
-  form {
-    width: 100%;
-    a {
-      font-size: 11px;
-    }
-  }
-  button {
-    background-color: #148c88;
-    color: #ffffff;
-    width: 100%;
-    height: 42px;
-    border-style: none;
-    border-radius: 28px;
-    margin: 16px 0px;
-  }
-`;
-
-const ForgotPasswordHeader = styled.div`
-  align-self: start;
-  width: 326px;
-  p {
-    color: #2c2c2c;
-    font-family: "OpenSansRegular";
-    font-size: 24px;
-  }
-`;
-
-const ForgotPasswordSchema = Yup.object().shape({
+const newPasswordSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, "Минимум 6 буквы")
     .max(20, "Максимум 20 букв")
@@ -59,13 +14,13 @@ const ForgotPasswordSchema = Yup.object().shape({
 
 export const NewPassword = (): ReactElement => {
   return (
-    <ForgotPasswordWrapper>
-      <ForgotPasswordHeader>
+    <FormWrapper>
+      <FormHeader>
         <p>Восстановление пароля</p>
-      </ForgotPasswordHeader>
+      </FormHeader>
       <Formik
         initialValues={{ password: "" }}
-        validationSchema={ForgotPasswordSchema}
+        validationSchema={newPasswordSchema}
         onSubmit={(values) => {
           console.log(values);
         }}
@@ -85,6 +40,6 @@ export const NewPassword = (): ReactElement => {
           </Form>
         )}
       </Formik>
-    </ForgotPasswordWrapper>
+    </FormWrapper>
   );
 };

@@ -1,63 +1,11 @@
 import { ReactElement } from "react";
 import TextInput from "../TextInput/TextInput";
-import styled from "styled-components";
+import { FormWrapper } from "@/styled/FormWrapper";
+import { FormHeader } from "@/styled/FormHeader";
 import { Formik, Form } from "formik";
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
-
-const SignInWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 700px;
-  background-color: #ffffff;
-  padding: 28px 100px;
-  color: #aaaaaa;
-  font-family: "OpenSansRegular";
-  border-radius: 16px;
-  scale: 0.8;
-  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  a {
-    align-self: start;
-    text-decoration: none;
-    color: #aaaaaa;
-  }
-  form {
-    width: 100%;
-    a {
-      font-size: 11px;
-    }
-  }
-  button {
-    background-color: #148c88;
-    color: #ffffff;
-    width: 100%;
-    height: 42px;
-    border-style: none;
-    border-radius: 28px;
-    margin: 16px 0px;
-  }
-`;
-
-const SignInHeader = styled.div`
-  align-self: start;
-  width: 326px;
-  p {
-    color: #2c2c2c;
-    font-family: "OpenSansRegular";
-    font-size: 24px;
-    font-weight: bold;
-  }
-`;
-
-const SignInFooter = styled.div`
-  font-size: 11px;
-  a {
-    color: #000000;
-  }
-`;
+import { FormFooter } from "@/styled/FormFooter";
 
 const SignInSchema = Yup.object().shape({
   login: Yup.string().required("Обязательное поле"),
@@ -69,10 +17,10 @@ const SignInSchema = Yup.object().shape({
 
 export const SignIn = (): ReactElement => {
   return (
-    <SignInWrapper>
-      <SignInHeader>
+    <FormWrapper>
+      <FormHeader>
         <p>Войти в профиль</p>
-      </SignInHeader>
+      </FormHeader>
       <Formik
         initialValues={{ login: "", password: "" }}
         validationSchema={SignInSchema}
@@ -104,9 +52,9 @@ export const SignIn = (): ReactElement => {
           </Form>
         )}
       </Formik>
-      <SignInFooter>
+      <FormFooter>
         У вас нет профиля? <NavLink to={"/signup"}>Зарегистрироваться</NavLink>
-      </SignInFooter>
-    </SignInWrapper>
+      </FormFooter>
+    </FormWrapper>
   );
 };
