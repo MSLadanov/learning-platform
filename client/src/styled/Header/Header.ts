@@ -11,14 +11,14 @@ export const HeaderWrapper = styled.header`
 
   @media only screen and ${devices.sm} {
     flex-direction: column;
-    padding: 16px 32px; // Adjust padding for smaller screens
+    padding: 16px 32px; 
   }
 `;
 
 export const HeaderLogo = styled.div`
   p {
-    font-family: "OpenSansLight", sans-serif; // Added fallback font
+    font-family: "OpenSansLight", sans-serif;
     font-size: 32px;
-    margin: 0; // Remove default margin
+    margin: 0;
   }
 `;

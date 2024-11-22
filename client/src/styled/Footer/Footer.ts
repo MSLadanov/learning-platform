@@ -6,18 +6,18 @@ export const FooterWrapper = styled.footer`
   color: #000000;
   padding: 24px 72px;
   display: flex;
-  justify-content: space-between; // Aligns content on larger screens
+  justify-content: space-between;
 
   @media only screen and ${devices.sm} {
     flex-direction: column;
-    align-items: center; // Center items on small screens
+    align-items: center;
   }
 `;
 
 export const FooterLogo = styled.div`
   p {
-    font-family: "OpenSansLight", sans-serif; // Added fallback font
+    font-family: "OpenSansLight", sans-serif; 
     font-size: 21px;
-    margin: 0; // Remove default margin
+    margin: 0; 
   }
 `;
