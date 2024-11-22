@@ -1,18 +1,6 @@
 import { ReactElement } from "react";
-import styled from "styled-components";
-
-const HeaderWrapper = styled.header`
-  background: #332f37;
-  color: #ffffff;
-  padding: 24px 72px;
-`;
-
-const HeaderLogo = styled.div`
-  p {
-    font-family: "OpenSansLight";
-    font-size: 32px;
-  }
-`;
+import { HeaderWrapper } from "@/styled/Header/Header";
+import { HeaderLogo } from "@/styled/Header/Header";
 
 export const Header = (): ReactElement => {
   return (
