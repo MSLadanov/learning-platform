@@ -6,6 +6,7 @@ import { Formik, Form } from "formik";
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
 import { FormFooter } from "@/styled/Form/FormFooter";
+import { userAPIInstance } from "@/api/user";
 
 const SignInSchema = Yup.object().shape({
   login: Yup.string().required("Обязательное поле"),
@@ -26,6 +27,8 @@ export const SignIn = (): ReactElement => {
         validationSchema={SignInSchema}
         onSubmit={(values) => {
           console.log(values);
+          const { login, password } = values;
+          userAPIInstance.logIn({ login, password });
         }}
       >
         {({ errors, touched }) => (
