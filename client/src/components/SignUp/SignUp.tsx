@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { FormWrapper } from "@/styled/Form/FormWrapper";
 import { FormHeader } from "@/styled/Form/FormHeader";
 import { FormFooter } from "@/styled/Form/FormFooter";
+import { userAPIInstance } from "@/api/user";
 
 const SignUpSchema = Yup.object().shape({
   fullname: Yup.string().required("Обязательное поле"),
@@ -41,6 +42,8 @@ export const SignUp = (): ReactElement => {
         validationSchema={SignUpSchema}
         onSubmit={(values) => {
           console.log(values);
+          const {fullname, login, email, password} = values
+          userAPIInstance.register({fullname, login, email, password})
         }}
       >
         {({ errors, touched }) => (
