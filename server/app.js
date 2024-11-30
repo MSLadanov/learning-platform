@@ -43,9 +43,15 @@ app.post("/api/v1/login", async (req, res) => {
   const user = await User.findOne({ where: { login: login } });
   if (user) {
     bcrypt.compare(password, user.dataValues.password, function (err, result) {
+      if(result) {
+        res.json({ message: "Пользователь успешно авторизован!" });
+      } else {
+        res
+        .status(401)
+        .json({ message: "Неверный пароль!" });
+      }
       console.log(result);
     });
-    res.json({ message: "Пользователь успешно авторизован!" });
   } else {
     res
       .status(404)
