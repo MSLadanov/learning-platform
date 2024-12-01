@@ -5,6 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const { User } = require("./services/database");
 const bcrypt = require("bcrypt");
+const { createUserToken } = require("./services/createUserToken");
 const dotenv = require('dotenv').config()
 
 app.use(
@@ -45,6 +46,7 @@ app.post("/api/v1/login", async (req, res) => {
     bcrypt.compare(password, user.dataValues.password, function (err, result) {
       if(result) {
         res.json({ message: "Пользователь успешно авторизован!" });
+        createUserToken(user.dataValues)
       } else {
         res
         .status(401)
