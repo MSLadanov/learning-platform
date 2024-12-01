@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 5000;
 const { User } = require("./services/database");
 const bcrypt = require("bcrypt");
 const { createUserToken } = require("./services/createUserToken");
-const dotenv = require('dotenv').config()
 
 app.use(
   cors({
@@ -45,8 +44,13 @@ app.post("/api/v1/login", async (req, res) => {
   if (user) {
     bcrypt.compare(password, user.dataValues.password, function (err, result) {
       if(result) {
-        res.json({ message: "Пользователь успешно авторизован!" });
-        createUserToken(user.dataValues)
+        const token = createUserToken(user.dataValues)
+        res.cookie('authToken', token, {
+          httpOnly: true, 
+          secure: true,
+          maxAge: 7 * 24 * 60 * 60 * 1000 
+        })
+        res.status(200).json({ message: "Пользователь успешно авторизован!" });
       } else {
         res
         .status(401)
