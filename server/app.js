@@ -5,6 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const { User } = require("./services/database");
 const bcrypt = require("bcrypt");
+const dotenv = require('dotenv').config()
 
 app.use(
   cors({
@@ -39,7 +40,6 @@ app.post("/api/v1/register", (req, res) => {
 
 app.post("/api/v1/login", async (req, res) => {
   const { login, password } = req.body;
-  console.log(login, password);
   const user = await User.findOne({ where: { login: login } });
   if (user) {
     bcrypt.compare(password, user.dataValues.password, function (err, result) {
@@ -50,7 +50,6 @@ app.post("/api/v1/login", async (req, res) => {
         .status(401)
         .json({ message: "Неверный пароль!" });
       }
-      console.log(result);
     });
   } else {
     res
