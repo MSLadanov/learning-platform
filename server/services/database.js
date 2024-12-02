@@ -23,6 +23,17 @@ User.init(
   { sequelize, modelName: "user" }
 );
 
+class Course extends Model {}
+Course.init(
+  {
+    title: DataTypes.STRING,
+    description: DataTypes.STRING,
+    image: DataTypes.STRING,
+    duration: DataTypes.STRING
+  },
+  { sequelize, modelName: "course" }
+);
+
 sequelize.sync();
 
 module.exports = {
