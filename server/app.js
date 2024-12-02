@@ -18,6 +18,8 @@ app.use(
 
 app.use("/static/users", express.static(__dirname + "/static/users"));
 
+app.use("/static/courses", express.static(__dirname + "/static/courses"));
+
 app.use(express.json());
 
 app.use(
@@ -64,8 +66,10 @@ app.post("/api/v1/login", async (req, res) => {
   }
 });
 
-app.post('/api/v1/course/', (req, res) => {
-  
+app.post('/api/v1/course', (req, res) => {
+  const { title, description, image, duration } = req.body
+  console.log(title, description, image, duration)
+  res.status(200).json({ message: "Курс успешно создан!" });
 })
 
 app.listen(PORT, () => {
