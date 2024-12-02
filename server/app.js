@@ -64,6 +64,10 @@ app.post("/api/v1/login", async (req, res) => {
   }
 });
 
+app.post('/api/v1/course/', (req, res) => {
+  
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
