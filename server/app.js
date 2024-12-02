@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
-const { User } = require("./services/database");
+const { User, Course } = require("./services/database");
 const bcrypt = require("bcrypt");
 const { createUserToken } = require("./services/createUserToken");
 
@@ -45,18 +45,16 @@ app.post("/api/v1/login", async (req, res) => {
   const user = await User.findOne({ where: { login: login } });
   if (user) {
     bcrypt.compare(password, user.dataValues.password, function (err, result) {
-      if(result) {
-        const token = createUserToken(user.dataValues)
-        res.cookie('authToken', token, {
-          httpOnly: true, 
+      if (result) {
+        const token = createUserToken(user.dataValues);
+        res.cookie("authToken", token, {
+          httpOnly: true,
           secure: true,
-          maxAge: 7 * 24 * 60 * 60 * 1000 
-        })
+          maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
         res.status(200).json({ message: "Пользователь успешно авторизован!" });
       } else {
-        res
-        .status(401)
-        .json({ message: "Неверный пароль!" });
+        res.status(401).json({ message: "Неверный пароль!" });
       }
     });
   } else {
@@ -66,11 +64,16 @@ app.post("/api/v1/login", async (req, res) => {
   }
 });
 
-app.post('/api/v1/course', (req, res) => {
-  const { title, description, image, duration } = req.body
-  console.log(title, description, image, duration)
+app.post("/api/v1/course", (req, res) => {
+  const { title, description, image, duration } = req.body;
+  Course.create({ title, description, image, duration });
   res.status(200).json({ message: "Курс успешно создан!" });
-})
+});
+
+app.get("/api/v1/courses", async (req, res) => {
+  const courses = await Course.findAll();
+  res.status(200).json({ courses: courses.map(course => course.dataValues) }); 
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

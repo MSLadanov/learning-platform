@@ -38,4 +38,5 @@ sequelize.sync();
 
 module.exports = {
   User,
+  Course
 };
