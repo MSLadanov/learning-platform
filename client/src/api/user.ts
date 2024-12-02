@@ -1,4 +1,4 @@
-export const API_URL = "/api/v1";
+const API_URL = "/api/v1";
 
 interface IRegCredentials {
   fullname: string;
