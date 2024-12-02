@@ -9,7 +9,19 @@ import { SignIn } from "@/components/SignIn/SignIn";
 import { SignUp } from "@/components/SignUp/SignUp";
 import { ForgotPassword } from "@/components/ForgotPassword/ForgotPassword";
 import { NewPassword } from "@/components/NewPassword/NewPassword";
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
+import CoursesPage from "@/components/CoursesPage/CoursesPage";
+import ProtectedRouteError from "@/components/ProtectedRouteError/ProtectedRouteError";
+import Cookies from "js-cookie";
+
+const ProtectedRoute = ({
+  children,
+}: {
+  children: ReactNode;
+}): ReactElement => {
+  const token = Cookies.get("authToken");
+  return token ? <>{children}</> : <ProtectedRouteError />;
+};
 
 const router = createBrowserRouter([
   {
@@ -22,6 +34,14 @@ const router = createBrowserRouter([
       { path: "signup", element: <SignUp /> },
       { path: "forgotpassword", element: <ForgotPassword /> },
       { path: "newpassword", element: <NewPassword /> },
+      {
+        path: "courses",
+        element: (
+          <ProtectedRoute>
+            <CoursesPage />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -48,8 +48,8 @@ app.post("/api/v1/login", async (req, res) => {
       if (result) {
         const token = createUserToken(user.dataValues);
         res.cookie("authToken", token, {
-          httpOnly: true,
-          secure: true,
+          // httpOnly: true,
+          // secure: true,
           maxAge: 7 * 24 * 60 * 60 * 1000,
         });
         res.status(200).json({ message: "Пользователь успешно авторизован!" });
