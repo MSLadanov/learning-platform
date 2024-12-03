@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import CourseCard from "../CourseCard/CourseCard";
 
 interface ICourse {
   createdAt: string;
@@ -10,11 +11,10 @@ interface ICourse {
   updatedAt: string;
 }
 
-const CoursesList = (courses: ICourse[]): ReactElement => {
-  console.log(courses);
+const CoursesList = ({courses}): ReactElement => {
   return (
     <div>
-      <h1>CoursesList</h1>
+      {courses.map((course) => <CourseCard key={course.id} course={course}/> )}
     </div>
   );
 };

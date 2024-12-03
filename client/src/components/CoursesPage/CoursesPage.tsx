@@ -8,7 +8,6 @@ const CoursesPage = (): ReactElement => {
     queryKey: ['courses'],
     queryFn: () => courseAPIInstance.getAllCourses(),
   });
-
   if (isLoading) {
     return <div>Загрузка...</div>; 
   }
@@ -19,6 +18,7 @@ const CoursesPage = (): ReactElement => {
   if (data?.length === 0) {
     return <div>Нет доступных курсов.</div>;
   }
+  if(data !== undefined){}
   return (
     <div>
       <CoursesList courses={data} />
