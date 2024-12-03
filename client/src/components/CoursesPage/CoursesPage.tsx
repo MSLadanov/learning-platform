@@ -4,12 +4,24 @@ import { useQuery } from "@tanstack/react-query";
 import { courseAPIInstance } from "@/api/course";
 
 const CoursesPage = (): ReactElement => {
-  const {data} = useQuery({ queryKey: ['courses'], queryFn: () => courseAPIInstance.getAllCourses() })
-  console.log(data)
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['courses'],
+    queryFn: () => courseAPIInstance.getAllCourses(),
+  });
+
+  if (isLoading) {
+    return <div>Загрузка...</div>; 
+  }
+
+  if (isError) {
+    return <div>Ошибка при загрузке курсов. Пожалуйста, попробуйте позже.</div>;
+  }
+  if (data?.length === 0) {
+    return <div>Нет доступных курсов.</div>;
+  }
   return (
     <div>
-      <h1>CoursesPage</h1>
-      <CoursesList/>
+      <CoursesList courses={data} />
     </div>
   );
 };

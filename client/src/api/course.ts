@@ -10,6 +10,10 @@ interface ICourse {
   updatedAt: string;
 }
 
+interface ICourseList {
+  courses: ICourse[];
+}
+
 class CourseAPI {
   async getAllCourses(): Promise<ICourse[]> {
     try {
@@ -24,8 +28,8 @@ class CourseAPI {
           `Ошибка при получении курсов: ${response.status} ${response.statusText}`
         );
       }
-      const courses: ICourse[] = await response.json();
-      return courses;
+      const courses: ICourseList = await response.json();
+      return courses.courses;
     } catch (error) {
       console.error(error);
       return [];

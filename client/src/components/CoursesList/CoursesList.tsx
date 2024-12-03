@@ -1,8 +1,22 @@
 import { ReactElement } from "react";
 
-const CoursesList = () : ReactElement => {
-
-    return <div><h1>CoursesList</h1></div>
+interface ICourse {
+  createdAt: string;
+  description: string;
+  duration: string;
+  id: string;
+  image: string;
+  title: string;
+  updatedAt: string;
 }
 
-export default CoursesList
+const CoursesList = (courses: ICourse[]): ReactElement => {
+  console.log(courses);
+  return (
+    <div>
+      <h1>CoursesList</h1>
+    </div>
+  );
+};
+
+export default CoursesList;
