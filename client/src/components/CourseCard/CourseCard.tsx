@@ -3,10 +3,12 @@ import { ReactElement } from "react";
 
 
 const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
-  console.log(course);
   return (
     <div>
-      <h1>Course Card</h1>
+      <img src={course.image} width={150} height={100} />
+      <h3>{course.title}</h3>
+      <p>{course.duration}</p>
+      <p>{course.description}</p>
     </div>
   );
 };
