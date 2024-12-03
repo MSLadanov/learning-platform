@@ -15,31 +15,49 @@ interface ILogCredentials {
 class UserAPI {
   async logIn(credentials: ILogCredentials) {
     try {
-      const user = await fetch(`${API_URL}/login`, {
+      const response = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(credentials),
       });
-      console.log(user);
+
+      // Проверяем статус ответа
+      if (!response.ok) {
+        throw new Error(
+          `Ошибка входа: ${response.status} ${response.statusText}`
+        );
+      }
+
+      const userData = await response.json();
+      console.log(userData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
-  async logOut() {}
+
   async register(credentials: IRegCredentials) {
     try {
-      const user = await fetch(`${API_URL}/register`, {
+      const response = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(credentials),
       });
-      console.log(user);
+
+      // Проверяем статус ответа
+      if (!response.ok) {
+        throw new Error(
+          `Ошибка регистрации: ${response.status} ${response.statusText}`
+        );
+      }
+
+      const userData = await response.json();
+      console.log(userData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }

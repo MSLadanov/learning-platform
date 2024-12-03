@@ -1,20 +1,36 @@
 const API_URL = "/api/v1";
 
+interface ICourse {
+  createdAt: string;
+  description: string;
+  duration: string;
+  id: string;
+  image: string;
+  title: string;
+  updatedAt: string;
+}
+
 class CourseAPI {
-  async getAllCourses() {
+  async getAllCourses(): Promise<ICourse[]> {
     try {
-      const courses = await fetch(`${API_URL}/courses`, {
+      const response = await fetch(`${API_URL}/courses`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       });
-      console.log(courses);
+      if (!response.ok) {
+        throw new Error(
+          `Ошибка при получении курсов: ${response.status} ${response.statusText}`
+        );
+      }
+      const courses: ICourse[] = await response.json();
+      return courses;
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      return [];
     }
   }
-
 }
 
 export const courseAPIInstance = new CourseAPI();
