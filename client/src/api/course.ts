@@ -1,18 +1,6 @@
+import { ICourse, ICourseList } from "@/types/course/types";
+
 const API_URL = "/api/v1";
-
-interface ICourse {
-  createdAt: string;
-  description: string;
-  duration: string;
-  id: string;
-  image: string;
-  title: string;
-  updatedAt: string;
-}
-
-interface ICourseList {
-  courses: ICourse[];
-}
 
 class CourseAPI {
   async getAllCourses(): Promise<ICourse[]> {

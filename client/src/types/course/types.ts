@@ -24,3 +24,7 @@ export interface ICourse {
 export interface ICourseCardProp {
   course: ICourse;
 }
+
+export interface ICourseList {
+  courses: ICourse[];
+}
