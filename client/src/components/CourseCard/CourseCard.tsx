@@ -1,6 +1,8 @@
+import { ICourseCardProp } from "@/types/course/types";
 import { ReactElement } from "react";
 
-const CourseCard = ({ course }): ReactElement => {
+
+const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
   console.log(course);
   return (
     <div>

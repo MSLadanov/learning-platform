@@ -1,17 +1,8 @@
 import { ReactElement } from "react";
 import CourseCard from "../CourseCard/CourseCard";
+import { ICourses } from "@/types/course/types";
 
-interface ICourse {
-  createdAt: string;
-  description: string;
-  duration: string;
-  id: string;
-  image: string;
-  title: string;
-  updatedAt: string;
-}
-
-const CoursesList = ({courses}): ReactElement => {
+const CoursesList : React.FC<ICourses> = ({courses}): ReactElement => {
   return (
     <div>
       {courses.map((course) => <CourseCard key={course.id} course={course}/> )}
