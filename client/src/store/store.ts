@@ -1,12 +1,28 @@
-import { makeAutoObservable } from "mobx"
+import { makeAutoObservable } from "mobx";
 
-class UserStore {
-    
-
-    constructor() {
-        makeAutoObservable(this)
-    }
-
+interface IUserStore {
+  id: null | string;
+  fullname: null | string;
+  email: null | string;
 }
 
-export const myTimer = new UserStore()
+class UserStore implements IUserStore {
+  id = "";
+  fullname = "";
+  email = "";
+  constructor() {
+    makeAutoObservable(this);
+  }
+  signIn(id: string, fullname: string, email: string) {
+    this.id = id;
+    this.fullname = fullname;
+    this.email = email;
+  }
+  logOut() {
+    this.id = "";
+    this.email = "";
+    this.fullname = "";
+  }
+}
+
+export const myTimer = new UserStore();
