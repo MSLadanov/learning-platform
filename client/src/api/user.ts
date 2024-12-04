@@ -61,7 +61,7 @@ class UserAPI {
       console.error(error);
     }
   }
-  async getUserData(){
+  async getUserData() {
     try {
       const response = await fetch(`${API_URL}/user`, {
         method: "GET",
@@ -75,7 +75,8 @@ class UserAPI {
         );
       }
       const userData = await response.json();
-      console.log(userData);
+      const { id, fullname, email } = userData;
+      userStore.signIn(id, fullname, email);
     } catch (error) {
       console.error(error);
     }

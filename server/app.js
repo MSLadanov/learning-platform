@@ -32,11 +32,19 @@ app.use(
   })
 );
 
-app.get("/api/v1/user", (req, res) => {
+app.get("/api/v1/user", async (req, res) => {
   const { authToken } = req.cookies;
   if (authToken) {
-    res.status(200).json({ message: "Ok!" });
-    checkUserToken(authToken)
+    const userId = checkUserToken(authToken);
+    const user = await User.findOne({ where: { id: userId } });
+    if (user) {
+      const { id, fullname, email } = user;
+      res.status(200).json({ id, fullname, email });
+    } else {
+      res
+        .status(404)
+        .json({ message: "Данный пользователь не зарегистрирован!" });
+    }
   } else {
     res.status(401).json({ message: "Пользователь не авторизован!" });
   }
