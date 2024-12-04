@@ -22,7 +22,6 @@ const ProtectedRoute = ({
   const token = Cookies.get("authToken");
   return token ? <>{children}</> : <ProtectedRouteError />;
 };
-
 const router = createBrowserRouter([
   {
     path: "/",
