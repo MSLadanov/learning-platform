@@ -56,6 +56,8 @@ class UserAPI {
       }
 
       const userData = await response.json();
+      const { id, fullname, email } = userData;
+      userStore.signIn(id, fullname, email);
       console.log(userData);
     } catch (error) {
       console.error(error);

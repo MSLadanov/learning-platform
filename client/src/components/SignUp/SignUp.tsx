@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import TextInput from "../TextInput/TextInput";
 import { Formik, Form } from "formik";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { FormWrapper } from "@/styled/Form/FormWrapper";
 import { FormHeader } from "@/styled/Form/FormHeader";
@@ -26,6 +26,7 @@ const SignUpSchema = Yup.object().shape({
 });
 
 export const SignUp = (): ReactElement => {
+  const navigate = useNavigate();
   return (
     <FormWrapper>
       <FormHeader>
@@ -42,8 +43,11 @@ export const SignUp = (): ReactElement => {
         validationSchema={SignUpSchema}
         onSubmit={(values) => {
           console.log(values);
-          const {fullname, login, email, password} = values
-          userAPIInstance.register({fullname, login, email, password})
+          const { fullname, login, email, password } = values;
+          userAPIInstance
+            .register({ fullname, login, email, password })
+            .then(() => userAPIInstance.logIn({ login, password }))
+            .catch((error) => console.log(error));
         }}
       >
         {({ errors, touched }) => (

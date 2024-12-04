@@ -50,12 +50,22 @@ app.get("/api/v1/user", async (req, res) => {
   }
 });
 
-app.post("/api/v1/register", (req, res) => {
+app.post("/api/v1/register", async (req, res) => {
   const { fullname, login, email, password } = req.body;
-  bcrypt.hash(password, 10, function (err, hash) {
-    User.create({ fullname, login, email, password: hash });
-  });
-  res.json({ message: "Пользователь успешно зарегистрирован!" });
+  try {
+    const existingUser = await User.findOne({ where: {login : login, email: email} });
+    console.log(existingUser)
+    if (existingUser) {
+      return res.status(400).json({ message: "Пользователь уже существует." });
+    }
+    const hash = await bcrypt.hash(password, 10);
+    const user = await User.create({ fullname, login, email, password: hash });
+    const { id } = user.dataValues;
+    res.status(201).json({ id, fullname, email });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Ошибка сервера." });
+  }
 });
 
 app.post("/api/v1/login", async (req, res) => {
