@@ -2,8 +2,9 @@ import { ReactElement } from "react";
 import CoursesList from "../CoursesList/CoursesList";
 import { useQuery } from "@tanstack/react-query";
 import { courseAPIInstance } from "@/api/course";
+import { observer } from "mobx-react-lite";
 
-const CoursesPage = (): ReactElement => {
+const CoursesPage = observer((): ReactElement => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['courses'],
     queryFn: () => courseAPIInstance.getAllCourses(),
@@ -23,6 +24,6 @@ const CoursesPage = (): ReactElement => {
       <CoursesList courses={data} />
     </div>
   );
-};
+});
 
 export default CoursesPage;

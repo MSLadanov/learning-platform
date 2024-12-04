@@ -1,3 +1,5 @@
+import { userStore } from "@/store/store";
+
 const API_URL = "/api/v1";
 
 interface IRegCredentials {
@@ -23,7 +25,6 @@ class UserAPI {
         body: JSON.stringify(credentials),
       });
 
-      // Проверяем статус ответа
       if (!response.ok) {
         throw new Error(
           `Ошибка входа: ${response.status} ${response.statusText}`
@@ -31,7 +32,8 @@ class UserAPI {
       }
 
       const userData = await response.json();
-      console.log(userData);
+      const { id, fullname, email } = userData;
+      userStore.signIn(id, fullname, email);
     } catch (error) {
       console.error(error);
     }
@@ -47,13 +49,31 @@ class UserAPI {
         body: JSON.stringify(credentials),
       });
 
-      // Проверяем статус ответа
       if (!response.ok) {
         throw new Error(
           `Ошибка регистрации: ${response.status} ${response.statusText}`
         );
       }
 
+      const userData = await response.json();
+      console.log(userData);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async getUserData(){
+    try {
+      const response = await fetch(`${API_URL}/user`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error(
+          `Ошибка получения данных пользователя: ${response.status} ${response.statusText}`
+        );
+      }
       const userData = await response.json();
       console.log(userData);
     } catch (error) {

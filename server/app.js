@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 5000;
 const { User, Course } = require("./services/database");
 const bcrypt = require("bcrypt");
 const { createUserToken } = require("./services/createUserToken");
+const cookieParser = require("cookie-parser");
+const { checkUserToken } = require("./services/checkUserToken");
+
+app.use(cookieParser());
 
 app.use(
   cors({
@@ -28,8 +32,14 @@ app.use(
   })
 );
 
-app.get("/api/v1/users", (req, res) => {
-  res.json({ name: "John", surname: "Doe" });
+app.get("/api/v1/user", (req, res) => {
+  const { authToken } = req.cookies;
+  if (authToken) {
+    res.status(200).json({ message: "Ok!" });
+    checkUserToken(authToken)
+  } else {
+    res.status(401).json({ message: "Пользователь не авторизован!" });
+  }
 });
 
 app.post("/api/v1/register", (req, res) => {

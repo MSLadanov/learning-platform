@@ -25,4 +25,4 @@ class UserStore implements IUserStore {
   }
 }
 
-export const myTimer = new UserStore();
+export const userStore = new UserStore();
