@@ -52,7 +52,8 @@ app.post("/api/v1/login", async (req, res) => {
           // secure: true,
           maxAge: 7 * 24 * 60 * 60 * 1000,
         });
-        res.status(200).json({ message: "Пользователь успешно авторизован!" });
+        const { id, fullname, email } = user;
+        res.status(200).json({ id, fullname, email });
       } else {
         res.status(401).json({ message: "Неверный пароль!" });
       }
@@ -72,7 +73,7 @@ app.post("/api/v1/course", (req, res) => {
 
 app.get("/api/v1/courses", async (req, res) => {
   const courses = await Course.findAll();
-  res.status(200).json({ courses: courses.map(course => course.dataValues) }); 
+  res.status(200).json({ courses: courses.map((course) => course.dataValues) });
 });
 
 app.listen(PORT, () => {
