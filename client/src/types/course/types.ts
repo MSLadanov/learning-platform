@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ICourse {
   createdAt: string;
   description: string;
@@ -27,4 +29,21 @@ export interface ICourseCardProp {
 
 export interface ICourseList {
   courses: ICourse[];
+}
+
+export interface SnackbarState {
+  isOpen: boolean;
+  message: string;
+  type: "success" | "warning" | "error";
+}
+
+export interface SnackbarContextType {
+  openSnackbar: (
+    message: string,
+    type?: "success" | "warning" | "error"
+  ) => void;
+}
+
+export interface SnackbarProviderProps {
+  children: ReactNode;
 }
