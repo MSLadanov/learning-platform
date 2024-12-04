@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import TextInput from "../TextInput/TextInput";
 import { FormWrapper } from "@/styled/Form/FormWrapper";
 import { FormHeader } from "@/styled/Form/FormHeader";
@@ -7,6 +7,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { FormFooter } from "@/styled/Form/FormFooter";
 import { userAPIInstance } from "@/api/user";
+import Cookies from "js-cookie";
 
 const SignInSchema = Yup.object().shape({
   login: Yup.string().required("Обязательное поле"),
@@ -18,6 +19,12 @@ const SignInSchema = Yup.object().shape({
 
 export const SignIn = (): ReactElement => {
   const navigate = useNavigate();
+  const token = Cookies.get("authToken");
+  useEffect(() => {
+    if (token) {
+      navigate("/courses");
+    }
+  }, [token]);
   return (
     <FormWrapper>
       <FormHeader>
@@ -31,6 +38,7 @@ export const SignIn = (): ReactElement => {
           const { login, password } = values;
           userAPIInstance
             .logIn({ login, password })
+            .then(() => navigate("/courses"))
             .catch((error) => console.log(error));
         }}
       >

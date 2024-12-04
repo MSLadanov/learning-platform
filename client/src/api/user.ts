@@ -35,7 +35,9 @@ class UserAPI {
       const { id, fullname, email } = userData;
       userStore.signIn(id, fullname, email);
     } catch (error) {
-      console.error(error);
+      throw new Error(
+        `Ошибка входа: ${error}`
+      );
     }
   }
 
@@ -60,7 +62,9 @@ class UserAPI {
       userStore.signIn(id, fullname, email);
       console.log(userData);
     } catch (error) {
-      console.error(error);
+      throw new Error(
+        `Ошибка регистрации: ${error}`
+      );
     }
   }
   async getUserData() {
