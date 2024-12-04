@@ -26,18 +26,15 @@ class UserAPI {
       });
 
       if (!response.ok) {
-        throw new Error(
-          `Ошибка входа: ${response.status} ${response.statusText}`
-        );
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Ошибка входа");
       }
 
       const userData = await response.json();
       const { id, fullname, email } = userData;
       userStore.signIn(id, fullname, email);
     } catch (error) {
-      throw new Error(
-        `Ошибка входа: ${error}`
-      );
+      throw new Error(`${error}`);
     }
   }
 
@@ -52,19 +49,15 @@ class UserAPI {
       });
 
       if (!response.ok) {
-        throw new Error(
-          `Ошибка регистрации: ${response.status} ${response.statusText}`
-        );
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Ошибка регистрации");
       }
 
       const userData = await response.json();
       const { id, fullname, email } = userData;
       userStore.signIn(id, fullname, email);
-      console.log(userData);
     } catch (error) {
-      throw new Error(
-        `Ошибка регистрации: ${error}`
-      );
+      throw new Error(`${error}`);
     }
   }
   async getUserData() {

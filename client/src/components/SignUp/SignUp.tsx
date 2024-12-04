@@ -8,6 +8,7 @@ import { FormHeader } from "@/styled/Form/FormHeader";
 import { FormFooter } from "@/styled/Form/FormFooter";
 import { userAPIInstance } from "@/api/user";
 import Cookies from "js-cookie";
+import { useSnackbar } from "@/context/SnackbarContext";
 
 const SignUpSchema = Yup.object().shape({
   fullname: Yup.string().required("Обязательное поле"),
@@ -29,6 +30,7 @@ const SignUpSchema = Yup.object().shape({
 export const SignUp = (): ReactElement => {
   const navigate = useNavigate();
   const token = Cookies.get("authToken");
+  const { openSnackbar } = useSnackbar();
   useEffect(() => {
     if (token) {
       navigate("/courses");
@@ -49,13 +51,15 @@ export const SignUp = (): ReactElement => {
         }}
         validationSchema={SignUpSchema}
         onSubmit={(values) => {
-          console.log(values);
           const { fullname, login, email, password } = values;
           userAPIInstance
             .register({ fullname, login, email, password })
             .then(() => userAPIInstance.logIn({ login, password }))
             .then(() => navigate("/courses"))
-            .catch((error) => console.log(error));
+            .then(() =>
+              openSnackbar("Пользователь успешно зарегистрирован!", "success")
+            )
+            .catch((error) => openSnackbar(error.message, "error"));
         }}
       >
         {({ errors, touched }) => (

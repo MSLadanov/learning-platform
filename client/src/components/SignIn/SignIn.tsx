@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { FormFooter } from "@/styled/Form/FormFooter";
 import { userAPIInstance } from "@/api/user";
 import Cookies from "js-cookie";
+import { useSnackbar } from "@/context/SnackbarContext";
 
 const SignInSchema = Yup.object().shape({
   login: Yup.string().required("Обязательное поле"),
@@ -19,6 +20,7 @@ const SignInSchema = Yup.object().shape({
 
 export const SignIn = (): ReactElement => {
   const navigate = useNavigate();
+  const { openSnackbar } = useSnackbar();
   const token = Cookies.get("authToken");
   useEffect(() => {
     if (token) {
@@ -39,7 +41,10 @@ export const SignIn = (): ReactElement => {
           userAPIInstance
             .logIn({ login, password })
             .then(() => navigate("/courses"))
-            .catch((error) => console.log(error));
+            .then(() =>
+              openSnackbar("Пользователь успешно авторизован!", "success")
+            )
+            .catch((error) => openSnackbar(error.message, "error"));
         }}
       >
         {({ errors, touched }) => (
