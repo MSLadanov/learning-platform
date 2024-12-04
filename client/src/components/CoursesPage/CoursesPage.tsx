@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import Cover from "../Cover/Cover";
 import Menu from "../Menu/Menu";
 import CoursesPageWrapper from "@/styled/CoursesPage/CoursesPageWrapper";
+import CoursesListWrapper from "@/styled/CoursesPage/CoursesListWrapper";
 
 const CoursesPage = observer((): ReactElement => {
   const { data, isLoading, isError } = useQuery({
@@ -27,7 +28,9 @@ const CoursesPage = observer((): ReactElement => {
       <Cover />
       <CoursesPageWrapper>
         <Menu />
-        <CoursesList courses={data} />
+        <CoursesListWrapper>
+          <CoursesList courses={data} />
+        </CoursesListWrapper>
       </CoursesPageWrapper>
     </div>
   );
