@@ -1,11 +1,12 @@
+import MenuWrapper from "@/styled/Menu/MenuWrapper";
 import { ReactElement } from "react";
 
-const Menu = () : ReactElement=> {
+const Menu = (): ReactElement => {
   return (
-    <div>
+    <MenuWrapper>
       <h1>Menu</h1>
-    </div>
+    </MenuWrapper>
   );
 };
 
-export default Menu
+export default Menu;

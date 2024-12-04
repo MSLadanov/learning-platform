@@ -15,29 +15,59 @@ body {
 @font-face {
   font-family: "OpenSansRegular";
   src: local("OpenSansRegular"),
-    url("./assets/fonts//Open_Sans/OpenSans-Regular.ttf") format("truetype");
+    url("./assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "OpenSansLight";
   src: local("OpenSansLight"),
-    url("./assets/fonts//Open_Sans/OpenSans-Light.ttf") format("truetype");
+    url("./assets/fonts/Open_Sans/OpenSans-Light.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "OpenSansMedium";
   src: local("OpenSansMedium"),
-    url("./assets/fonts//Open_Sans/OpenSans-Medium.ttf") format("truetype");
+    url("./assets/fonts/Open_Sans/OpenSans-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "OpenSansBold";
   src: local("OpenSansBold"),
-    url("./assets/fonts//Open_Sans/OpenSans-Bold.ttf") format("truetype");
+    url("./assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "OpenSansExtraBold";
   src: local("OpenSansExtraBold"),
     url("./assets/fonts//Open_Sans/OpenSans-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratRegular";
+  src: local("MontserratRegular"),
+    url("./assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratLight";
+  src: local("MontserratLight"),
+    url("./assets/fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratMedium";
+  src: local("MontserratMedium"),
+    url("./assets/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: local("MontserratBold"),
+    url("./assets/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratExtraBold";
+  src: local("OpenSansExtraBold"),
+    url("./assets/fonts/Montserrat/Montserrat-ExtraBold.ttf") format("truetype");
 }
