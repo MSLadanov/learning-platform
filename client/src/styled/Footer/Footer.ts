@@ -7,7 +7,14 @@ export const FooterWrapper = styled.footer`
   padding: 24px 72px;
   display: flex;
   justify-content: space-between;
-
+  div {
+    display: flex;
+    align-items: center;
+    ul {
+      font-family: "OpenSansLight", sans-serif;
+      display: flex;
+    }
+  }
   @media only screen and ${devices.sm} {
     flex-direction: column;
     align-items: center;
@@ -16,8 +23,8 @@ export const FooterWrapper = styled.footer`
 
 export const FooterLogo = styled.div`
   p {
-    font-family: "OpenSansLight", sans-serif; 
+    font-family: "OpenSansLight", sans-serif;
     font-size: 21px;
-    margin: 0; 
+    margin: 0;
   }
 `;

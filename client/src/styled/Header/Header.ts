@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.header`
 
   @media only screen and ${devices.sm} {
     flex-direction: column;
-    padding: 16px 32px; 
+    padding: 16px 32px;
   }
 `;
 
@@ -20,5 +20,13 @@ export const HeaderLogo = styled.div`
     font-family: "OpenSansLight", sans-serif;
     font-size: 32px;
     margin: 0;
+  }
+`;
+
+export const HeaderNavMenu = styled.div`
+  display: flex;
+  align-items: center;
+  a:not(:last-child) {
+    margin-right: 30px;
   }
 `;

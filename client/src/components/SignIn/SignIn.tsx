@@ -36,7 +36,6 @@ export const SignIn = (): ReactElement => {
         initialValues={{ login: "", password: "" }}
         validationSchema={SignInSchema}
         onSubmit={(values) => {
-          console.log(values);
           const { login, password } = values;
           userAPIInstance
             .logIn({ login, password })
