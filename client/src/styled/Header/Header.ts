@@ -4,7 +4,7 @@ import { devices } from "../constants";
 export const HeaderWrapper = styled.header`
   background: #332f37;
   color: #ffffff;
-  padding: 10px 72px;
+  padding: 10px 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
