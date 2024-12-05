@@ -6,7 +6,7 @@ const MenuWrapper = styled.div`
     flex-direction: column;
     background: #FFFFFF;
     padding: 20px;
-    top: 165px;
+    top: 136px;
     left: 25px;
     border-radius: 21px;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);

@@ -10,7 +10,6 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
 
   @media only screen and ${devices.sm} {
-    flex-direction: column;
     padding: 16px 32px;
   }
 `;
