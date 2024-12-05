@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../constants";
 
 const CoursesCardDescriptionWrapper = styled.div`
   margin-left: 20px;
@@ -11,6 +12,9 @@ const CoursesCardDescriptionWrapper = styled.div`
     font-size: 12px;
     color: #6c6969;
   }
+    @media only screen and ${devices.md} {
+      margin: 0px;
+    }
 `;
 
 export default CoursesCardDescriptionWrapper;

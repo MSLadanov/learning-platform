@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../constants";
 
 const CoursesCardButtonsWrapper = styled.div`
   display: flex;
@@ -16,7 +17,13 @@ const CoursesCardButtonsWrapper = styled.div`
       background: #ffffff;
       border: 1px solid #148c88;
     }
+      @media only screen and ${devices.md} {
+      margin: 0px;
+    }
   }
+    @media only screen and ${devices.md} {
+      justify-content: space-between;
+    }
 `;
 
 export default CoursesCardButtonsWrapper;

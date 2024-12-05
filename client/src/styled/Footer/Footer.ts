@@ -5,6 +5,7 @@ export const FooterWrapper = styled.footer`
   background: #f5f5f5;
   color: #000000;
   padding: 10px 42px;
+  font-family: "OpenSansRegular", sans-serif;
   ul {
     font-family: "OpenSansLight", sans-serif;
     font-size: 12px;

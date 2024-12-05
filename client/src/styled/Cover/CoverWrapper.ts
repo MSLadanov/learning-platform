@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../constants";
 
 const CoverWrapper = styled.div`
     background: #148C88;
@@ -9,6 +10,14 @@ const CoverWrapper = styled.div`
         position: relative;
         top: 80px;
         left: 215px;
+        @media only screen and ${devices.md} {
+            position: static;
+    }
+    }
+    @media only screen and ${devices.md} {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 
