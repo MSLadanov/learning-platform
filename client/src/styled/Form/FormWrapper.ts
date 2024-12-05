@@ -11,7 +11,6 @@ export const FormWrapper = styled.div`
   color: #aaaaaa;
   font-family: "OpenSansRegular";
   border-radius: 16px;
-  scale: 0.8;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -35,9 +34,10 @@ export const FormWrapper = styled.div`
     background-color: #148c88;
     color: #ffffff;
     width: 100%;
-    height: 42px;
+    height: 32px;
     border-style: none;
     border-radius: 28px;
     margin: 16px 0px;
+    font-size: 10px;
   }
 `;

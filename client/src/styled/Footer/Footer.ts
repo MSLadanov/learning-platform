@@ -4,7 +4,7 @@ import { devices } from "../constants";
 export const FooterWrapper = styled.footer`
   background: #f5f5f5;
   color: #000000;
-  padding: 24px 72px;
+  padding: 10px 72px;
   display: flex;
   justify-content: space-between;
   div {
@@ -24,7 +24,7 @@ export const FooterWrapper = styled.footer`
 export const FooterLogo = styled.div`
   p {
     font-family: "OpenSansLight", sans-serif;
-    font-size: 21px;
+    font-size: 16px;
     margin: 0;
   }
 `;

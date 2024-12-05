@@ -2,7 +2,7 @@ import { Field, FieldProps } from "formik";
 import styled from "styled-components";
 
 const InputField = styled.div`
-  margin: 20px 0;
+  margin: 10px 0;
   position: relative;
 
   input {
@@ -11,7 +11,7 @@ const InputField = styled.div`
     outline: none;
     padding: 8px 0 4px;
     width: 100%;
-    font-size: 16px;
+    font-size: 11px;
     transition: border-color 0.2s ease;
 
     &:focus {
@@ -21,7 +21,7 @@ const InputField = styled.div`
 
     &:focus + label,
     &:valid + label {
-      top: -20px;
+      top: -8px;
       left: 0;
       font-size: 12px;
       color: #148c88;
@@ -35,10 +35,11 @@ const Label = styled.label`
   left: 3px;
   top: 3px;
   transition: all 0.2s ease;
+  font-size: 10px;
 `;
 
 const ErrorText = styled.div`
-  font-size: 11px;
+  font-size: 8px;
   color: #e53935;
 `
 
