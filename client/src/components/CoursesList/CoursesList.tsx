@@ -19,8 +19,8 @@ const CoursesList: React.FC<ICourses> = ({ courses }): ReactElement => {
     return (
       <NoCoursesWrapper>
         <CoursesListButtonsWrapper>
-          <NavLink to="/courses" onClick={() => setCurrentPage(1)}>Все программы</NavLink>
-          <NavLink to="/mycourses" onClick={() => setCurrentPage(1)}>Мои программы</NavLink>
+          <NavLink to="/courses">Все программы</NavLink>
+          <NavLink to="/mycourses">Мои программы</NavLink>
         </CoursesListButtonsWrapper>
         <div>
           <h1>Нет активных программ</h1>
@@ -31,8 +31,8 @@ const CoursesList: React.FC<ICourses> = ({ courses }): ReactElement => {
   return (
     <div>
       <CoursesListButtonsWrapper>
-        <NavLink to="/courses">Все программы</NavLink>
-        <NavLink to="/mycourses">Мои программы</NavLink>
+        <NavLink to="/courses" onClick={() => setCurrentPage(1)}>Все программы</NavLink>
+        <NavLink to="/mycourses" onClick={() => setCurrentPage(1)}>Мои программы</NavLink>
       </CoursesListButtonsWrapper>
       {paginatedCourses.map((course) => (
         <CourseCard key={course.id} course={course} />
