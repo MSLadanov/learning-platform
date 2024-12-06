@@ -1,4 +1,4 @@
-import { ReactElement, useMemo, useState } from "react";
+import { ReactElement, useState } from "react";
 import CourseCard from "../CourseCard/CourseCard";
 import { ICourses } from "@/types/course/types";
 import { userAPIInstance } from "@/api/user";
@@ -19,8 +19,8 @@ const CoursesList: React.FC<ICourses> = ({ courses }): ReactElement => {
     return (
       <NoCoursesWrapper>
         <CoursesListButtonsWrapper>
-          <NavLink to="/courses">Все программы</NavLink>
-          <NavLink to="/mycourses">Мои программы</NavLink>
+          <NavLink to="/courses" onClick={() => setCurrentPage(1)}>Все программы</NavLink>
+          <NavLink to="/mycourses" onClick={() => setCurrentPage(1)}>Мои программы</NavLink>
         </CoursesListButtonsWrapper>
         <div>
           <h1>Нет активных программ</h1>
