@@ -13,7 +13,7 @@ const SnackbarContext = createContext<SnackbarContextType | undefined>(
 export const useSnackbar = (): SnackbarContextType => {
   const context = useContext(SnackbarContext);
   if (!context) {
-    throw new Error("useSnackbar must be used within a SnackbarProvider");
+    throw new Error("Корневой компонент не обернут в SnackbarProvider!");
   }
   return context;
 };

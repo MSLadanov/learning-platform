@@ -1,22 +1,20 @@
-import { ReactElement } from "react";
+import { ReactElement, useMemo, useState } from "react";
 import CourseCard from "../CourseCard/CourseCard";
 import { ICourses } from "@/types/course/types";
 import { userAPIInstance } from "@/api/user";
 import { NavLink } from "react-router-dom";
 import CoursesListButtonsWrapper from "@/styled/CoursesPage/CoursesListButtonsWrapper";
 import NoCoursesWrapper from "@/styled/CoursesPage/NoCoursesWrapper";
+import Pagination from "../Pagination/Pagination";
+
+let PageSize = 5;
 
 const CoursesList: React.FC<ICourses> = ({ courses }): ReactElement => {
   userAPIInstance.getUserData();
-  const emptyCourse = {
-    id: "",
-    createdAt: "",
-    description: "",
-    duration: "",
-    image: "",
-    title: "",
-    updatedAt: "",
-  };
+  const [currentPage, setCurrentPage] = useState(1);
+  const firstPageIndex = (currentPage - 1) * PageSize;
+  const lastPageIndex = firstPageIndex + PageSize;
+  const paginatedCourses = courses.slice(firstPageIndex, lastPageIndex);
   if (courses.length === 0) {
     return (
       <NoCoursesWrapper>
@@ -36,9 +34,16 @@ const CoursesList: React.FC<ICourses> = ({ courses }): ReactElement => {
         <NavLink to="/courses">Все программы</NavLink>
         <NavLink to="/mycourses">Мои программы</NavLink>
       </CoursesListButtonsWrapper>
-      {courses.map((course) => (
+      {paginatedCourses.map((course) => (
         <CourseCard key={course.id} course={course} />
       ))}
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={courses.length}
+        pageSize={PageSize}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </div>
   );
 };
