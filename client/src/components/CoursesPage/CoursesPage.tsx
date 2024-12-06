@@ -7,8 +7,11 @@ import Cover from "../Cover/Cover";
 import Menu from "../Menu/Menu";
 import CoursesPageWrapper from "@/styled/CoursesPage/CoursesPageWrapper";
 import CoursesListWrapper from "@/styled/CoursesPage/CoursesListWrapper";
+import { useLocation } from "react-router-dom";
+import { userStore } from "@/store/store";
 
 const CoursesPage = observer((): ReactElement => {
+  const location = useLocation()
   const { data, isLoading, isError } = useQuery({
     queryKey: ["courses"],
     queryFn: () => courseAPIInstance.getAllCourses(),
@@ -29,7 +32,7 @@ const CoursesPage = observer((): ReactElement => {
       <CoursesPageWrapper>
         <Menu />
         <CoursesListWrapper>
-          <CoursesList courses={data} />
+          <CoursesList courses={location.pathname === '/mycourses' ? userStore.courses : data} />
         </CoursesListWrapper>
       </CoursesPageWrapper>
     </div>

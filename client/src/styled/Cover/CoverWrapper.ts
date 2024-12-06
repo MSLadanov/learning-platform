@@ -6,6 +6,7 @@ const CoverWrapper = styled.div`
   color: #ffffff;
   font-family: MontserratLight;
   height: 130px;
+  width: 100vw;
   h1 {
     position: relative;
     top: 80px;

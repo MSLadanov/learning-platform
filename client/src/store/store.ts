@@ -4,7 +4,7 @@ interface ICourse {
   createdAt: string;
   description: string;
   duration: string;
-  id: number;
+  id: number | string;
   title: string;
   updatedAt: string;
 }

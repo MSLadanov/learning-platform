@@ -1,3 +1,4 @@
+import { userStore } from "@/store/store";
 import CoursesCardButtonsWrapper from "@/styled/CoursesPage/CoursesCardButtonsWrapper";
 import CoursesCardDescriptionWrapper from "@/styled/CoursesPage/CoursesCardDescriptionWrapper";
 import CoursesCardImageWrapper from "@/styled/CoursesPage/CoursesCardImageWrapper";
@@ -17,7 +18,7 @@ const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
         <p>{course.duration}</p>
         <CoursesCardButtonsWrapper>
           <button>Подробнее</button>
-          <button>Пройти</button>
+          <button onClick={() => userStore.startCourse(course)}>Пройти</button>
         </CoursesCardButtonsWrapper>
       </CoursesCardDescriptionWrapper>
     </CoursesCardWrapper>
