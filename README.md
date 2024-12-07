@@ -44,7 +44,7 @@
     <li>Перейдите в папку сервера, если вы еще не там:</li>
     <pre><code>cd server</code></pre>
     <li>Запустите сервер:</li>
-    <pre><code>npm start</code></pre>
+    <pre><code>npm run dev</code></pre>
 </ol>
 
 <h3>3. Запуск клиента</h3>
@@ -52,7 +52,7 @@
     <li>Перейдите в папку клиента, если вы еще не там:</li>
     <pre><code>cd ../client</code></pre>
     <li>Запустите клиент:</li>
-    <pre><code>npm start</code></pre>
+    <pre><code>npm run dev</code></pre>
 </ol>
 
 <h2>Пример логина</h2>
