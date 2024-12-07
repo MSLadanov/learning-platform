@@ -2,7 +2,7 @@ const { User } = require("../models/models");
 const validationResult = require("express-validator");
 const bcrypt = require("bcrypt");
 const { createUserToken } = require("../services/createUserToken");
-const { checkUserToken } = require('../services/checkUserToken')
+const { checkUserToken } = require('../middleware/checkUserTokenMiddleware')
 
 class UserController {
   async register(req, res) {
