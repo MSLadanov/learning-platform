@@ -93,7 +93,7 @@
 <img width="1440" alt="Снимок экрана 2024-12-07 в 21 12 23" src="https://github.com/user-attachments/assets/7c605990-4ee7-4e3e-8356-c1ff8d66d858">
 <img width="1439" alt="Снимок экрана 2024-12-07 в 20 59 34" src="https://github.com/user-attachments/assets/eef5eaba-46aa-472e-864a-09fc2f8fb48a">
 <img width="957" alt="Снимок экрана 2024-12-07 в 21 07 22" src="https://github.com/user-attachments/assets/b3a306c1-c614-4923-8df1-959e7af9b21c">
+<img width="457" alt="Снимок экрана 2024-12-07 в 21 03 46" src="https://github.com/user-attachments/assets/3b16198c-1521-4bbc-8fb2-0ee189c78b50">
+<img width="457" alt="Снимок экрана 2024-12-07 в 21 03 56" src="https://github.com/user-attachments/assets/d223e3fb-1f2a-4dee-93d6-14e47bea7048">
 <img width="336" alt="Снимок экрана 2024-12-07 в 21 10 52" src="https://github.com/user-attachments/assets/82dc75d5-690d-453c-9657-b831f142af44">
 <img width="336" alt="Снимок экрана 2024-12-07 в 21 10 22" src="https://github.com/user-attachments/assets/b72533fc-947e-430a-92c7-1c6117a6174f">
-<img width="457" alt="Снимок экрана 2024-12-07 в 21 03 56" src="https://github.com/user-attachments/assets/d223e3fb-1f2a-4dee-93d6-14e47bea7048">
-<img width="457" alt="Снимок экрана 2024-12-07 в 21 03 46" src="https://github.com/user-attachments/assets/3b16198c-1521-4bbc-8fb2-0ee189c78b50">
