@@ -4,6 +4,7 @@ import { devices } from "../constants";
 const CoursesCardDescriptionWrapper = styled.div`
   margin-left: 20px;
   padding-top: 5px;
+  width: 100%;
   font-family: OpenSansLight;
   h3 {
     font-size: 16px;
