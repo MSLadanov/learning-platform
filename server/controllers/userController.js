@@ -2,7 +2,8 @@ const { User } = require("../models/models");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const { createUserToken } = require("../services/createUserToken");
-const checkUserTokenMiddleware = require('../middleware/checkUserTokenMiddleware')
+const dotenv = require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 class UserController {
   async register(req, res) {
@@ -75,19 +76,15 @@ class UserController {
   }
   async info(req, res) {
     const { authToken } = req.cookies;
-    if (authToken) {
-      const userId = checkUserTokenMiddleware(authToken);
-      const user = await User.findOne({ where: { id: userId } });
-      if (user) {
-        const { id, fullname, email } = user;
-        res.status(200).json({ id, fullname, email });
-      } else {
-        res
-          .status(404)
-          .json({ message: "Данный пользователь не зарегистрирован!" });
-      }
+    const { id } = jwt.verify(authToken, dotenv.parsed.SECRET_KEY);
+    const user = await User.findOne({ where: { id: +id } });
+    if (user) {
+      const { id, fullname, email } = user;
+      res.status(200).json({ id, fullname, email });
     } else {
-      res.status(401).json({ message: "Пользователь не авторизован!" });
+      res
+        .status(404)
+        .json({ message: "Данный пользователь не зарегистрирован!" });
     }
   }
 }

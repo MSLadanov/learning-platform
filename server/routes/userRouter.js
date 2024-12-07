@@ -5,6 +5,8 @@ const userController = require("../controllers/userController");
 
 const router = new Router();
 
+const checkUserAuthMiddleware = require('../middleware/checkUserAuthMiddleware')
+
 router.post(
   "/register",
   [
@@ -20,6 +22,6 @@ router.post(
 
 router.post("/login", userController.login);
 
-router.get("/user", userController.info);
+router.get("/user", checkUserAuthMiddleware, userController.info);
 
 module.exports = router;
