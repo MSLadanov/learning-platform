@@ -6,6 +6,7 @@ import notify from "@/assets/icons/notify.svg";
 import user from "@/assets/icons/user.svg";
 import { NavLink } from "react-router-dom";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
+import Burger from "../Burger/Burger";
 
 export const Header = observer((): ReactElement => {
   const [isLogged, setIsLogged] = useState(Boolean(userStore.id));
@@ -25,6 +26,7 @@ export const Header = observer((): ReactElement => {
         <HeaderLogo>
           <p onClick={toggleMobileMenu}>{isLogged ? "Логотип" : "Платформа"}</p>
         </HeaderLogo>
+        <Burger openMenu={isMobileMenuOpened} setOpenMenu={setIsMobileMenuOpened}/>
         {isLogged && (
           <HeaderNavMenu>
             <NavLink to="#">

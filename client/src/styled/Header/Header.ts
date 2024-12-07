@@ -20,6 +20,9 @@ export const HeaderLogo = styled.div`
     font-size: 24px;
     margin: 0;
   }
+    @media only screen and ${devices.md} {
+    display: none;
+  }
 `;
 
 export const HeaderNavMenu = styled.div`
