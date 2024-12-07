@@ -1,8 +1,8 @@
 const { User } = require("../models/models");
-const validationResult = require("express-validator");
+const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const { createUserToken } = require("../services/createUserToken");
-const { checkUserToken } = require('../middleware/checkUserTokenMiddleware')
+const checkUserTokenMiddleware = require('../middleware/checkUserTokenMiddleware')
 
 class UserController {
   async register(req, res) {
@@ -76,7 +76,7 @@ class UserController {
   async info(req, res) {
     const { authToken } = req.cookies;
     if (authToken) {
-      const userId = checkUserToken(authToken);
+      const userId = checkUserTokenMiddleware(authToken);
       const user = await User.findOne({ where: { id: userId } });
       if (user) {
         const { id, fullname, email } = user;
