@@ -20,15 +20,23 @@ const MenuWrapper = styled.div`
     color: #000000;
     text-decoration: none;
     font-family: "OpenSansRegular", sans-serif;
-    margin: 45px; 
+    margin: 45px;
     font-size: 28px;
     &:hover {
       color: red;
+    }
+    @media only screen and ${devices.xl} {
+      margin: 30px;
+      font-size: 18px
     }
   }
 
   @media only screen and ${devices.md} {
     display: none;
+  }
+  @media only screen and ${devices["2xl"]} {
+    height: auto;
+    width: auto;
   }
 `;
 

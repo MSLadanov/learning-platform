@@ -6,6 +6,10 @@ const CoursesCardImageWrapper = styled.div`
   align-items: center;
   img {
     border-radius: 12px;
+    @media only screen and ${devices.xl} {
+      width: 100%;
+      height: auto;
+    }
     @media only screen and ${devices.md} {
       width: 100%;
       height: auto;

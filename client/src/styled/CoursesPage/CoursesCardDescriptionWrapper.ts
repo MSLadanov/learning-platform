@@ -8,6 +8,9 @@ const CoursesCardDescriptionWrapper = styled.div`
   font-family: OpenSansLight;
   h3 {
     font-size: 28px;
+    @media only screen and ${devices.xl} {
+      font-size: 20px;
+    }
   }
   p {
     font-size: 21px;
@@ -15,8 +18,12 @@ const CoursesCardDescriptionWrapper = styled.div`
     @media only screen and ${devices.md} {
       margin: 10px 0px;
     }
+     @media only screen and ${devices.xl} {
+      font-size: 16px;
+    }
+      
   }
-    @media only screen and ${devices.md} {
+    @media only screen and ${devices.lg} {
       margin: 0px;
     }
 `;

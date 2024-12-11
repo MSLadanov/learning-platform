@@ -22,7 +22,7 @@ const CoursesCardButtonsWrapper = styled.div`
       margin: 0px;
     }
   }
-    @media only screen and ${devices.md} {
+    @media only screen and ${devices.lg} {
       justify-content: space-between;
     }
 `;

@@ -16,6 +16,12 @@ const CoverWrapper = styled.div`
     @media only screen and ${devices.md} {
       position: static;
     }
+    @media only screen and ${devices['2xl']} {
+      left: 385px;
+    }
+      @media only screen and ${devices.xl} {
+      left: 300px;
+    }
   }
   @media only screen and ${devices.md} {
     display: flex;
