@@ -8,9 +8,9 @@ const CoursesCardWrapper = styled.div`
     margin-bottom: 20px;
     border-radius: 21px;
     font-family: OpenSansRegular;
-    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -webkit-box-shadow: 40 0 12px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12);
     @media only screen and ${devices.lg} {
         flex-direction: column;
   }
