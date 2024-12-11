@@ -12,6 +12,7 @@ export const FooterWrapper = styled.footer`
     font-size: 21px;
     display: flex;
     @media only screen and ${devices.sm} {
+      font-size: 16px;
       flex-direction: column;
     }
     li {

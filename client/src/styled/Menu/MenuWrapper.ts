@@ -31,7 +31,7 @@ const MenuWrapper = styled.div`
     }
   }
 
-  @media only screen and ${devices.md} {
+  @media only screen and ${devices.ml} {
     display: none;
   }
   @media only screen and ${devices["2xl"]} {

@@ -20,7 +20,7 @@ export const HeaderLogo = styled.div`
     font-size: 28px;
     margin: 0;
   }
-    @media only screen and ${devices.md} {
+    @media only screen and ${devices.ml} {
     display: none;
   }
 `;

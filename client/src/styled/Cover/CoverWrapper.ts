@@ -10,7 +10,7 @@ const CoverWrapper = styled.div`
   h1 {
     position: relative;
     top: 190px;
-    left: 495px;
+    left: 510px;
     font-size: 64px;
     font-family: 'OpenSansBold';
     @media only screen and ${devices.md} {
@@ -21,6 +21,9 @@ const CoverWrapper = styled.div`
     }
       @media only screen and ${devices.xl} {
       left: 300px;
+    }
+    @media only screen and ${devices.sm} {
+      font-size: 32px;
     }
   }
   @media only screen and ${devices.md} {

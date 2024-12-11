@@ -18,13 +18,18 @@ const CoursesCardButtonsWrapper = styled.div`
       background: #ffffff;
       border: 1px solid #148c88;
     }
-      @media only screen and ${devices.md} {
+    @media only screen and ${devices.md} {
       margin: 0px;
     }
-  }
-    @media only screen and ${devices.lg} {
-      justify-content: space-between;
+    @media only screen and ${devices.sm} {
+      width: 150px;
+      height: 40px;
+      font-size: 16px;
     }
+  }
+  @media only screen and ${devices.lg} {
+    justify-content: space-between;
+  }
 `;
 
 export default CoursesCardButtonsWrapper;
