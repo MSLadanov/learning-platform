@@ -7,10 +7,10 @@ const CoursesCardDescriptionWrapper = styled.div`
   width: 100%;
   font-family: OpenSansLight;
   h3 {
-    font-size: 16px;
+    font-size: 28px;
   }
   p {
-    font-size: 12px;
+    font-size: 21px;
     color: #6c6969;
     @media only screen and ${devices.md} {
       margin: 10px 0px;

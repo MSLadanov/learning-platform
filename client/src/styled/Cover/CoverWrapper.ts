@@ -5,12 +5,14 @@ const CoverWrapper = styled.div`
   background: #148c88;
   color: #ffffff;
   font-family: MontserratLight;
-  height: 130px;
+  height: 300px;
   width: 100vw;
   h1 {
     position: relative;
-    top: 80px;
-    left: 215px;
+    top: 190px;
+    left: 495px;
+    font-size: 64px;
+    font-family: 'OpenSansBold';
     @media only screen and ${devices.md} {
       position: static;
     }

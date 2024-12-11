@@ -21,7 +21,7 @@ const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
   return (
     <CoursesCardWrapper>
       <CoursesCardImageWrapper>
-        <img src={course.image} width={150} height={100} alt={course.title} />
+        <img src={course.image} width={273} height={174} alt={course.title} />
       </CoursesCardImageWrapper>
       <CoursesCardDescriptionWrapper>
         <h3>{course.title}</h3>

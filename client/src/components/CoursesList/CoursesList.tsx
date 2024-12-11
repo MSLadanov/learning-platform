@@ -19,8 +19,8 @@ const CoursesList: React.FC<ICourses> = ({ courses }): ReactElement => {
     return (
       <NoCoursesWrapper>
         <CoursesListButtonsWrapper>
-          <NavLink to="/courses">Все программы</NavLink>
-          <NavLink to="/mycourses">Мои программы</NavLink>
+          <NavLink to="/courses">ВСЕ ПРОГРАММЫ</NavLink>
+          <NavLink to="/mycourses">МОИ ПРОГРАММЫ</NavLink>
         </CoursesListButtonsWrapper>
         <div>
           <h1>Нет активных программ</h1>

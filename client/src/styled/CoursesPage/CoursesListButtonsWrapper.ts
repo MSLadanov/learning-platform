@@ -3,12 +3,12 @@ import { devices } from "../constants";
 
 const CoursesListButtonsWrapper = styled.div`
   padding: 15px 0;
-
   a {
     color: #000000;
     text-decoration: none;
-    font-family: "OpenSansRegular", sans-serif;
-    margin-right: 10px;
+    font-size: 28px;
+    font-family: "OpenSansLight", sans-serif;
+    margin-right: 25px;
 
     &:not(:last-child) {
       @media only screen and ${devices.sm} {
@@ -17,7 +17,7 @@ const CoursesListButtonsWrapper = styled.div`
     }
 
     &.active {
-      font-family: "OpenSansBold", sans-serif;
+      font-family: "OpenSansRegular", sans-serif;
     }
   }
 `;

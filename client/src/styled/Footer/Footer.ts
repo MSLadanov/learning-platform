@@ -6,9 +6,10 @@ export const FooterWrapper = styled.footer`
   color: #000000;
   padding: 10px 42px;
   font-family: "OpenSansRegular", sans-serif;
+  font-size: 21px;
   ul {
     font-family: "OpenSansLight", sans-serif;
-    font-size: 12px;
+    font-size: 21px;
     display: flex;
     @media only screen and ${devices.sm} {
       flex-direction: column;

@@ -17,7 +17,7 @@ export const HeaderWrapper = styled.header`
 export const HeaderLogo = styled.div`
   p {
     font-family: "OpenSansLight", sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
   }
     @media only screen and ${devices.md} {
