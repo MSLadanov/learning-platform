@@ -5,6 +5,8 @@ const CoursesCardImageWrapper = styled.div`
   display: flex;
   align-items: center;
   img {
+    width: 335px;
+    height: 100%;
     border-radius: 12px;
     @media only screen and ${devices.xl} {
       width: 100%;

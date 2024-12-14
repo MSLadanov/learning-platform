@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  height: 100px;
   @media only screen and ${devices.sm} {
     padding: 16px 32px;
   }
@@ -33,12 +33,12 @@ export const HeaderNavMenu = styled.div`
   }
   a:not(:first-child) {
     img {
-      width: 36px;
-      height: 36px;
+      width: 70px;
+      height: 70px;
     }
   }
   img {
-    width: 24px;
-    height: 24px;
+    width: 41px;
+    height: 49px;
   }
 `;

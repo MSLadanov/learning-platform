@@ -24,7 +24,7 @@ export const Header = observer((): ReactElement => {
     <>
       <HeaderWrapper>
         <HeaderLogo>
-          <p onClick={toggleMobileMenu}>{isLogged ? "Логотип" : "Платформа"}</p>
+          <p onClick={toggleMobileMenu}>{isLogged ? "ЛОГОТИП" : "ПЛАТФОРМА"}</p>
         </HeaderLogo>
         <Burger openMenu={isMobileMenuOpened} setOpenMenu={setIsMobileMenuOpened}/>
         {isLogged && (

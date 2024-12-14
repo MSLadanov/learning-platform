@@ -7,12 +7,14 @@ const CoursesCardWrapper = styled.div`
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 21px;
+    height: 300px;
     font-family: OpenSansRegular;
     -webkit-box-shadow: 40 0 12px 0 rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12);
     @media only screen and ${devices.lg} {
-        flex-direction: column;
+      height: auto;
+      flex-direction: column;
   }
 `
 

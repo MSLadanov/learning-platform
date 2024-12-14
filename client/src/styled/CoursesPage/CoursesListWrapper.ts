@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { devices } from "../constants";
 
 const CoursesListWrapper = styled.div`
-  margin-right: 50px;
+  margin-right: 80px;
   min-height: 100vh;
   margin-left: 510px;
   @media only screen and ${devices.md} {

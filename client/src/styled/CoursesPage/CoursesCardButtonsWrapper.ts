@@ -10,7 +10,7 @@ const CoursesCardButtonsWrapper = styled.div`
     border: 1px solid #ffffff;
     border-radius: 8px;
     width: 246px;
-    height: 45px;
+    height: 65px;
     color: #ffffff;
     font-size: 21px;
     &:not(:last-child) {

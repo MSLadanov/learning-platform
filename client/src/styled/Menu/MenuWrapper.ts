@@ -4,14 +4,14 @@ import { devices } from "../constants";
 const MenuWrapper = styled.div`
   position: absolute;
   width: 395px;
-  height: 518px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  padding: 20px;
-  top: 235px;
-  left: 25px;
+  top: 205px;
+  left: 55px;
   border-radius: 21px;
+  padding: 30px 0px;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -20,7 +20,7 @@ const MenuWrapper = styled.div`
     color: #000000;
     text-decoration: none;
     font-family: "OpenSansRegular", sans-serif;
-    margin: 45px;
+    margin: 35px 50px;
     font-size: 28px;
     &:hover {
       color: red;
