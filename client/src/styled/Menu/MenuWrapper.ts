@@ -25,7 +25,7 @@ const MenuWrapper = styled.div`
     &:hover {
       color: red;
     }
-    @media only screen and ${devices.xl} {
+    @media only screen and ${devices["2xl"]} {
       margin: 30px;
       font-size: 18px
     }

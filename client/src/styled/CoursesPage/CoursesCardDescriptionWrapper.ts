@@ -19,16 +19,16 @@ const CoursesCardDescriptionWrapper = styled.div`
   p {
     font-size: 21px;
     color: #6c6969;
-    margin-top: 20px;
     @media only screen and ${devices.md} {
       margin: 10px 0px;
     }
      @media only screen and ${devices.xl} {
+      margin: 20px 0px;
       font-size: 16px;
     }
       
   }
-    @media only screen and ${devices.lg} {
+    @media only screen and ${devices.xl} {
       margin: 0px;
     }
 `;

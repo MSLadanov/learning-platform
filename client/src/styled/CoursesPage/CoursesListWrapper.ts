@@ -10,7 +10,7 @@ const CoursesListWrapper = styled.div`
   }
 
   @media only screen and ${devices["2xl"]} {
-    margin-left: 385px;
+    margin-left: 305px;
   }
   @media only screen and ${devices.xl} {
     margin-left: 300px;

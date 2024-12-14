@@ -20,11 +20,15 @@ const CoverWrapper = styled.div`
       left: 385px;
     }
       @media only screen and ${devices.xl} {
+      top: 80px;
       left: 300px;
     }
     @media only screen and ${devices.sm} {
       font-size: 32px;
     }
+  }
+  @media only screen and ${devices.xl} {
+    height: 180px;
   }
   @media only screen and ${devices.md} {
     display: flex;

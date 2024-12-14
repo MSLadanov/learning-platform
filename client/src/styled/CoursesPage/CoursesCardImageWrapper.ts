@@ -10,7 +10,7 @@ const CoursesCardImageWrapper = styled.div`
     border-radius: 12px;
     @media only screen and ${devices.xl} {
       width: 100%;
-      height: auto;
+      height: 100%;
     }
     @media only screen and ${devices.md} {
       width: 100%;

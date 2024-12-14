@@ -11,6 +11,12 @@ const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
   const { openSnackbar } = useSnackbar();
   const [isPurchased, setIsPurchased] = useState<boolean>(false);
 
+  const purchaseCourse = () => {
+    // userStore.startCourse(course);
+    // setIsPurchased(true);
+    // openSnackbar(`Вы успешно записались на курс ${course.title}!`, "success");
+  };
+
   useEffect(() => {
     const purchasedCourse = userStore.courses.find(
       (item) => item.id === course.id

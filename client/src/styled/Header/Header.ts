@@ -10,6 +10,7 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   height: 100px;
   @media only screen and ${devices.sm} {
+    height: 60px;
     padding: 16px 32px;
   }
 `;
@@ -20,7 +21,7 @@ export const HeaderLogo = styled.div`
     font-size: 28px;
     margin: 0;
   }
-    @media only screen and ${devices.ml} {
+  @media only screen and ${devices.ml} {
     display: none;
   }
 `;
@@ -35,10 +36,18 @@ export const HeaderNavMenu = styled.div`
     img {
       width: 70px;
       height: 70px;
+      @media only screen and ${devices.sm} {
+        width: 50px;
+        height: 50px;
+      }
     }
   }
   img {
     width: 41px;
     height: 49px;
+    @media only screen and ${devices.sm} {
+      width: 34px;
+      height: 41px;
+    }
   }
 `;
