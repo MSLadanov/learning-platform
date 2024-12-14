@@ -11,10 +11,18 @@ const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
   const { openSnackbar } = useSnackbar();
   const [isPurchased, setIsPurchased] = useState<boolean>(false);
 
+  const fixDescriptionLength = (description: string, len : number) => {
+    if(description.length > len){
+      return description.slice(0, len) + '...'
+    } else {
+       return description
+    }
+  };
+
   const purchaseCourse = () => {
-    // userStore.startCourse(course);
-    // setIsPurchased(true);
-    // openSnackbar(`Вы успешно записались на курс ${course.title}!`, "success");
+    userStore.startCourse(course);
+    setIsPurchased(true);
+    openSnackbar(`Вы успешно записались на курс ${course.title}!`, "success");
   };
 
   useEffect(() => {
@@ -31,6 +39,7 @@ const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
       </CoursesCardImageWrapper>
       <CoursesCardDescriptionWrapper>
         <h3>{course.title}</h3>
+        {/* <p>{fixDescriptionLength(course.description, 100)}</p> */}
         <p>{course.description}</p>
         <p>{course.duration}</p>
         {isPurchased && <p>Куплено</p>}
@@ -41,18 +50,7 @@ const CourseCard: React.FC<ICourseCardProp> = ({ course }): ReactElement => {
         ) : (
           <CoursesCardButtonsWrapper>
             <button>Подробнее</button>
-            <button
-              onClick={() => {
-                userStore.startCourse(course);
-                setIsPurchased(true);
-                openSnackbar(
-                  `Вы успешно записались на курс ${course.title}!`,
-                  "success"
-                );
-              }}
-            >
-              Пройти
-            </button>
+            <button onClick={() => purchaseCourse()}>Пройти</button>
           </CoursesCardButtonsWrapper>
         )}
       </CoursesCardDescriptionWrapper>

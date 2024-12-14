@@ -19,6 +19,7 @@ const CoursesCardDescriptionWrapper = styled.div`
   p {
     font-size: 21px;
     color: #6c6969;
+    overflow: hidden;
     @media only screen and ${devices.md} {
       margin: 10px 0px;
     }
